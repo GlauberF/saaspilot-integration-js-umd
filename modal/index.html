@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Pilot Integration Example</title>
+    <style>
+        /* Reset margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Ensure the body fills the entire screen */
+        body, html {
+            height: 100%;
+        }
+
+        /* Create a div that covers the entire body */
+        .center-div {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center;     /* Centers vertically */
+            height: 100vh;           /* Full viewport height */
+            text-align: center;      /* Ensure text is centered */
+        }
+
+        .center-text {
+            font-size: 2rem;         /* Adjust text size */
+            font-weight: bold;       /* Make the text bold */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@saaspilot/chat-ui/dist/saaspilot-chat.umd.js"></script>
+    <script>
+        let saaspchat;
+        window.addEventListener('load', function() {
+            if (typeof SaaspilotChat !== 'undefined' && typeof SaaspilotChat.initSaaspChat === 'function') {
+                saaspchat = SaaspilotChat.initSaaspChat({
+                    saaspilotUrl: 'https://www.saaspilot.ai',
+                    saaspilotApiKey: 'saaspk-0*************************',
+                    AIname: 'SaaS Pilot - Chat',
+                    displayType: 'modal',
+                    initialOpen: false,
+                    userApiKey: 'your-api-key-for-accessing-your-api', // Required for API calls. Never stored in our database.
+                    userDescription: 'Provide context about the user and any useful information for accessing your API', // Optional
+                    showFloatingButton: true, // Set to false to hide default button and control programmatically
+                    speechLanguage: 'en-US'
+                });
+    
+                // Programmatic control examples:
+                // saaspchat.open();  // Open chat programmatically
+                // saaspchat.close(); // Close chat programmatically
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Div that covers the entire body -->
+    <div class="center-div">
+        <div class="center-text">
+            Your SaaS
+        </div>
+    </div>
+
+</body>
+
+</html>
+
